@@ -1,102 +1,200 @@
-import React from 'react';
-import { Metadata } from 'next';
+'use client';
 
-export const metadata: Metadata = {
-  title: 'Residential Cleaning Services Seattle | Test Cleaning Seattle',
-  description: 'Professional residential cleaning services in Seattle, WA. Reliable, thorough, and affordable house cleaning with experienced cleaners. Call for your free quote today.',
-  keywords: 'residential cleaning Seattle, house cleaning Seattle, home cleaning services, Seattle cleaners',
-};
+import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Service1Page() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const benefits = [
+    {
+      title: "Deep Sanitization",
+      description: "Our professional-grade equipment and eco-friendly solutions eliminate 99.9% of bacteria and germs.",
+      icon: "🧽"
+    },
+    {
+      title: "Time-Saving",
+      description: "Focus on what matters most while our expert team handles all your cleaning needs efficiently.",
+      icon: "⏰"
+    },
+    {
+      title: "Healthier Environment",
+      description: "Reduce allergens and improve indoor air quality for you and your family's wellbeing.",
+      icon: "🌿"
+    },
+    {
+      title: "Professional Results",
+      description: "Trained professionals deliver consistent, high-quality results every single time.",
+      icon: "✨"
+    },
+    {
+      title: "Flexible Scheduling",
+      description: "Weekly, bi-weekly, or monthly service options that fit your busy Seattle lifestyle.",
+      icon: "📅"
+    },
+    {
+      title: "Bonded & Insured",
+      description: "Complete peace of mind with fully licensed, bonded, and insured cleaning professionals.",
+      icon: "🛡️"
+    }
+  ];
+
+  const process = [
+    {
+      step: 1,
+      title: "Initial Consultation",
+      description: "We assess your space and discuss your specific cleaning needs and preferences."
+    },
+    {
+      step: 2,
+      title: "Custom Cleaning Plan",
+      description: "Our team creates a tailored cleaning checklist based on your home's unique requirements."
+    },
+    {
+      step: 3,
+      title: "Professional Service",
+      description: "Our trained cleaners arrive on time with all supplies and complete your custom cleaning plan."
+    },
+    {
+      step: 4,
+      title: "Quality Check",
+      description: "We perform a thorough walkthrough to ensure every detail meets our high standards."
+    },
+    {
+      step: 5,
+      title: "Follow-up",
+      description: "We check in to ensure your complete satisfaction and schedule your next service."
+    }
+  ];
+
+  const pricingTiers = [
+    {
+      name: "Essential Clean",
+      price: "$120-180",
+      frequency: "Per Visit",
+      features: [
+        "Kitchen deep clean",
+        "Bathroom sanitization", 
+        "Living areas dusting & vacuuming",
+        "Trash removal",
+        "Basic floor cleaning"
+      ]
+    },
+    {
+      name: "Premium Clean",
+      price: "$180-250",
+      frequency: "Per Visit",
+      popular: true,
+      features: [
+        "Everything in Essential",
+        "Inside appliance cleaning",
+        "Window cleaning (interior)",
+        "Baseboard wiping",
+        "Light fixture cleaning",
+        "Cabinet front cleaning"
+      ]
+    },
+    {
+      name: "Luxury Clean",
+      price: "$250-350",
+      frequency: "Per Visit",
+      features: [
+        "Everything in Premium",
+        "Inside oven cleaning",
+        "Refrigerator deep clean",
+        "Closet organization",
+        "Garage cleaning",
+        "Same-day service available"
+      ]
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "How long does a typical cleaning service take?",
+      answer: "Most residential cleanings take between 2-4 hours depending on the size of your home and the service level selected. We'll provide an accurate time estimate during your consultation."
+    },
+    {
+      question: "Do I need to provide cleaning supplies?",
+      answer: "No! We bring all professional-grade cleaning supplies and equipment. Our eco-friendly products are safe for your family and pets while delivering superior results."
+    },
+    {
+      question: "Are your cleaners background checked?",
+      answer: "Absolutely. All Test Cleaning Seattle team members undergo thorough background checks, are fully insured, and receive ongoing professional training to maintain our high standards."
+    },
+    {
+      question: "What if I'm not satisfied with the service?",
+      answer: "Your satisfaction is guaranteed. If you're not completely happy with our service, we'll return within 24 hours to address any concerns at no additional cost."
+    },
+    {
+      question: "How do I schedule recurring services?",
+      answer: "We offer flexible scheduling for weekly, bi-weekly, or monthly services. You can book online, call us directly, or set up automatic recurring appointments for your convenience."
+    },
+    {
+      question: "Do you clean during specific hours?",
+      answer: "We typically service homes Monday through Friday from 8 AM to 6 PM, with some Saturday availability. We're happy to work around your schedule whenever possible."
+    },
+    {
+      question: "What areas of Seattle do you serve?",
+      answer: "We proudly serve all neighborhoods throughout Seattle and surrounding areas including Bellevue, Redmond, Kirkland, and other Eastside communities."
+    },
+    {
+      question: "Is there a contract required?",
+      answer: "No long-term contracts required! While we offer discounts for recurring services, you can book one-time cleanings or cancel recurring services with 48 hours notice."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="bg-blue-600 text-white py-20">
+      {/* Header */}
+      <header className="bg-blue-600 text-white py-4">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Professional Residential Cleaning Services in Seattle
-            </h1>
-            <p className="text-xl mb-8">
-              Transform your home with our thorough, reliable residential cleaning services. 
-              Serving Seattle and surrounding areas with exceptional care and attention to detail.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="tel:+1234567890" 
-                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-              >
-                Call for Free Quote
-              </a>
-              <button className="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
-                Schedule Online
-              </button>
+          <div className="flex justify-between items-center">
+            <Link href="/" className="text-2xl font-bold">Test Cleaning Seattle</Link>
+            <div className="flex items-center space-x-4">
+              <span>📞 Call for quote</span>
+              <span>📍 Seattle, WA</span>
             </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-blue-50 to-blue-100 py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+            Professional Residential Cleaning Services
+          </h1>
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            Transform your Seattle home with our premium cleaning services. Experience the difference of professional-grade cleaning that saves you time and creates a healthier living environment.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+              Get Free Quote
+            </button>
+            <button className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition duration-300">
+              Call Now
+            </button>
           </div>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16">
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Why Choose Our Residential Cleaning Services?</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">100% Satisfaction Guaranteed</h3>
-                <p className="text-gray-600">We're not satisfied until you are. If you're not happy with our service, we'll make it right.</p>
+          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Our Cleaning Services?</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {benefits.map((benefit, index) => (
+              <div key={index} className="text-center p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
+                <div className="text-4xl mb-4">{benefit.icon}</div>
+                <h3 className="text-xl font-semibold mb-3 text-gray-800">{benefit.title}</h3>
+                <p className="text-gray-600">{benefit.description}</p>
               </div>
-              <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Bonded & Insured</h3>
-                <p className="text-gray-600">All our cleaning professionals are fully bonded and insured for your peace of mind.</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Flexible Scheduling</h3>
-                <p className="text-gray-600">Weekly, bi-weekly, monthly, or one-time cleaning services to fit your busy schedule.</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Eco-Friendly Products</h3>
-                <p className="text-gray-600">Safe, non-toxic cleaning products that are gentle on your family and pets while being tough on dirt.</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Experienced Team</h3>
-                <p className="text-gray-600">Our trained and experienced cleaning professionals deliver consistent, high-quality results every time.</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Competitive Pricing</h3>
-                <p className="text-gray-600">Fair, transparent pricing with no hidden fees. Get the best value for professional cleaning services.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -104,102 +202,129 @@ export default function Service1Page() {
       {/* Process Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Our Simple 4-Step Process</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                  1
+          <h2 className="text-3xl font-bold text-center mb-12">Our Proven Cleaning Process</h2>
+          <div className="max-w-4xl mx-auto">
+            {process.map((step, index) => (
+              <div key={index} className="flex items-start mb-8 last:mb-0">
+                <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg mr-6">
+                  {step.step}
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Get Your Quote</h3>
-                <p className="text-gray-600">Contact us for a free, no-obligation quote. We'll assess your home's cleaning needs and provide transparent pricing.</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                  2
+                <div>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-800">{step.title}</h3>
+                  <p className="text-gray-600">{step.description}</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Schedule Service</h3>
-                <p className="text-gray-600">Choose a date and time that works for you. We offer flexible scheduling to fit your busy lifestyle.</p>
               </div>
-              <div className="text-center">
-                <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                  3
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Professional Cleaning</h3>
-                <p className="text-gray-600">Our trained team arrives on time with all supplies and equipment, delivering thorough, detailed cleaning.</p>
-              </div>
-              <div className="text-center">
-                <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                  4
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Enjoy Your Clean Home</h3>
-                <p className="text-gray-600">Relax and enjoy your spotless home. We guarantee your satisfaction with our quality cleaning service.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* What's Included Section */}
-      <section className="py-16">
+      {/* Pricing Section */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">What's Included in Our Residential Cleaning</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="bg-white border rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-4 text-blue-600">Kitchen</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• Clean and sanitize countertops</li>
-                  <li>• Clean exterior of appliances</li>
-                  <li>• Clean sink and faucet</li>
-                  <li>• Wipe down cabinet fronts</li>
-                  <li>• Sweep and mop floors</li>
-                  <li>• Empty trash and replace liner</li>
+          <h2 className="text-3xl font-bold text-center mb-4">Transparent Pricing</h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Choose the cleaning package that fits your needs and budget. All prices include supplies and equipment.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {pricingTiers.map((tier, index) => (
+              <div key={index} className={`rounded-lg p-8 border-2 ${tier.popular ? 'border-blue-500 bg-blue-50' : 'border-gray-200'} relative`}>
+                {tier.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
+                    Most Popular
+                  </div>
+                )}
+                <h3 className="text-2xl font-bold mb-2 text-gray-800">{tier.name}</h3>
+                <div className="text-3xl font-bold text-blue-600 mb-1">{tier.price}</div>
+                <div className="text-gray-600 mb-6">{tier.frequency}</div>
+                <ul className="space-y-3 mb-8">
+                  {tier.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center">
+                      <span className="text-green-500 mr-2">✓</span>
+                      <span className="text-gray-700">{feature}</span>
+                    </li>
+                  ))}
                 </ul>
+                <button className={`w-full py-3 rounded-lg font-semibold transition duration-300 ${
+                  tier.popular 
+                    ? 'bg-blue-600 text-white hover:bg-blue-700' 
+                    : 'border-2 border-blue-600 text-blue-600 hover:bg-blue-50'
+                }`}>
+                  Choose Plan
+                </button>
               </div>
-              <div className="bg-white border rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-4 text-blue-600">Bathrooms</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• Scrub and disinfect toilet</li>
-                  <li>• Clean shower/tub and fixtures</li>
-                  <li>• Wipe down vanity and sink</li>
-                  <li>• Clean mirrors</li>
-                  <li>• Sweep and mop floors</li>
-                  <li>• Empty trash and replace liner</li>
-                </ul>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <p className="text-gray-600">
+              * Final pricing depends on home size and specific requirements. Contact us for a personalized quote.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+          <div className="max-w-3xl mx-auto">
+            {faqs.map((faq, index) => (
+              <div key={index} className="mb-4 border border-gray-200 rounded-lg overflow-hidden">
+                <button
+                  className="w-full text-left p-6 bg-white hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition duration-200"
+                  onClick={() => toggleFaq(index)}
+                >
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-lg font-semibold text-gray-800 pr-4">{faq.question}</h3>
+                    <span className="text-2xl text-gray-400 flex-shrink-0">
+                      {openFaq === index ? '−' : '+'}
+                    </span>
+                  </div>
+                </button>
+                {openFaq === index && (
+                  <div className="px-6 pb-6 bg-white border-t border-gray-200">
+                    <p className="text-gray-600 mt-4">{faq.answer}</p>
+                  </div>
+                )}
               </div>
-              <div className="bg-white border rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-4 text-blue-600">Living Areas</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• Dust furniture and surfaces</li>
-                  <li>• Vacuum carpets and rugs</li>
-                  <li>• Clean hardwood/tile floors</li>
-                  <li>• Wipe down baseboards</li>
-                  <li>• Clean light switches and handles</li>
-                  <li>• Organize and tidy up</li>
-                </ul>
-              </div>
-              <div className="bg-white border rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-4 text-blue-600">Bedrooms</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• Make beds (if requested)</li>
-                  <li>• Dust nightstands and dressers</li>
-                  <li>• Vacuum carpets</li>
-                  <li>• Clean mirrors</li>
-                  <li>• Empty wastebaskets</li>
-                  <li>• Organize surfaces</li>
-                </ul>
-              </div>
-              <div className="bg-white border rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-4 text-blue-600">General Areas</h3>
-                <ul className="space-y-2 text-gray-600">
-                  <li>• Dust all accessible surfaces</li>
-                  <li>• Clean door frames and handles</li>
-                  <li>• Wipe down light switches</li>
-                  <li>• Vacuum stairs</li>
-                  <li>• Clean glass surfaces</li>
-                  <li>• Spot clean walls</li>
-                </ul>
-              </div>
-              <div className="bg-white border rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-4 text-blue-600">Add-On Services</h3>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-blue-600 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready for a Spotless Home?</h2>
+          <p className="text-xl mb-8 max-w-2xl mx-auto">
+            Join hundreds of satisfied Seattle homeowners who trust Test Cleaning Seattle for their cleaning needs. 
+            Book your service today and experience the difference.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition duration-300 text-lg">
+              Schedule Free Consultation
+            </button>
+            <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 text-lg">
+              Call for Immediate Quote
+            </button>
+          </div>
+          <div className="mt-8 space-y-2">
+            <p className="text-lg">📞 Call for quote | 📍 Serving all of Seattle, WA</p>
+            <p className="text-blue-200">Licensed • Bonded • Insured • Satisfaction Guaranteed</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-8">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4">Test Cleaning Seattle</h3>
+              <p className="text-gray-300">Professional cleaning services for Seattle homes and businesses.</p>
+            </div>
+            <div>
+              <h4 className="font-semibold mb-4">Quick Links</h4>
+              <ul className="space-y-2 text-gray-300">
+                <li><Link href="/" className="hover:text-white transition duration-200">Home</Link></li>
+                <li><Link
