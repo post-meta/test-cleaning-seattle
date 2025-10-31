@@ -3,21 +3,33 @@
   "@type": "LocalBusiness",
   "name": "Test Cleaning Seattle",
   "description": "Professional cleaning services in Seattle, WA",
+  "url": "https://test-cleaning-seattle.vercel.app",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Seattle",
     "addressRegion": "WA",
     "addressCountry": "US"
   },
-  "telephone": "",
-  "email": "",
-  "url": "https://test-cleaning-seattle.vercel.app",
-  "priceRange": "$$",
   "areaServed": {
     "@type": "City",
     "name": "Seattle"
   },
-  "serviceType": "cleaning",
+  "serviceType": "Cleaning Service",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Cleaning Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Professional Cleaning Services",
+          "description": "Comprehensive cleaning services for residential and commercial properties"
+        }
+      }
+    ]
+  },
+  "priceRange": "$$",
   "slogan": "Your trusted cleaning experts",
   "aggregateRating": {
     "@type": "AggregateRating",
