@@ -1,235 +1,276 @@
-import { Phone, Mail, MapPin, Sparkles, Clock, Shield, Users } from 'lucide-react'
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { Phone, Mail, MapPin, Clock, Star, CheckCircle, Home, Building, Sparkles } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Test Cleaning Seattle - Professional House & Office Cleaning Services',
+  description: 'Trusted cleaning services in Seattle, WA. Residential and commercial cleaning with eco-friendly products. Book your free estimate today!',
+}
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
+      <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-2">
-              <Sparkles className="h-8 w-8 text-blue-600" />
-              <span className="text-2xl font-bold text-gray-900">Test Cleaning Seattle</span>
+            <div className="flex items-center">
+              <Sparkles className="h-8 w-8 text-blue-600 mr-2" />
+              <h1 className="text-2xl font-bold text-gray-900">Test Cleaning Seattle</h1>
             </div>
-            <div className="hidden md:flex items-center space-x-6">
-              <a href="tel:+1234567890" className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
-                <Phone className="h-4 w-4" />
-                <span>(123) 456-7890</span>
+            <nav className="hidden md:flex space-x-8">
+              <Link href="#services" className="text-gray-700 hover:text-blue-600 transition-colors">Services</Link>
+              <Link href="#about" className="text-gray-700 hover:text-blue-600 transition-colors">About</Link>
+              <Link href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors">Contact</Link>
+            </nav>
+            <div className="flex items-center space-x-4">
+              <a href="tel:+12065551234" className="flex items-center text-blue-600 font-semibold">
+                <Phone className="h-4 w-4 mr-2" />
+                <span className="hidden sm:inline">(206) 555-1234</span>
               </a>
-              <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+              <Link 
+                href="#contact" 
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+              >
                 Get Quote
-              </button>
+              </Link>
             </div>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-16 sm:py-24">
+      <section className="relative bg-gradient-to-br from-blue-50 to-indigo-100 py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Professional Cleaning
-              <span className="block text-blue-600">Services in Seattle</span>
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Transform your space with our reliable, eco-friendly cleaning services. 
-              From residential homes to commercial offices, we deliver spotless results every time.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors">
-                Book Now
-              </button>
-              <button className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors">
-                Free Estimate
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose Test Cleaning Seattle?
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We're committed to providing exceptional cleaning services that exceed your expectations.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center p-6">
-              <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-8 w-8 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Insured & Bonded</h3>
-              <p className="text-gray-600">
-                Fully licensed and insured for your peace of mind and protection.
-              </p>
-            </div>
-
-            <div className="text-center p-6">
-              <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Sparkles className="h-8 w-8 text-green-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Eco-Friendly</h3>
-              <p className="text-gray-600">
-                Using safe, non-toxic cleaning products that protect your family and pets.
-              </p>
-            </div>
-
-            <div className="text-center p-6">
-              <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Clock className="h-8 w-8 text-purple-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Reliable Service</h3>
-              <p className="text-gray-600">
-                Punctual and dependable cleaning teams that respect your schedule.
-              </p>
-            </div>
-
-            <div className="text-center p-6">
-              <div className="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-orange-600" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Trained Staff</h3>
-              <p className="text-gray-600">
-                Experienced professionals trained in the latest cleaning techniques.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Our Cleaning Services
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Comprehensive cleaning solutions tailored to your specific needs.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Residential Cleaning</h3>
-              <p className="text-gray-600 mb-4">
-                Regular house cleaning, deep cleaning, and move-in/move-out services for your home.
-              </p>
-              <ul className="text-sm text-gray-500 space-y-1">
-                <li>• Weekly, bi-weekly, or monthly service</li>
-                <li>• Kitchen and bathroom deep cleaning</li>
-                <li>• Dusting and vacuuming</li>
-                <li>• Window cleaning</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Commercial Cleaning</h3>
-              <p className="text-gray-600 mb-4">
-                Professional office cleaning services to maintain a pristine work environment.
-              </p>
-              <ul className="text-sm text-gray-500 space-y-1">
-                <li>• Daily, weekly, or custom schedules</li>
-                <li>• Sanitization and disinfection</li>
-                <li>• Restroom maintenance</li>
-                <li>• Floor care and carpet cleaning</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Specialty Cleaning</h3>
-              <p className="text-gray-600 mb-4">
-                Specialized cleaning services for unique situations and deep cleaning needs.
-              </p>
-              <ul className="text-sm text-gray-500 space-y-1">
-                <li>• Post-construction cleanup</li>
-                <li>• Carpet and upholstery cleaning</li>
-                <li>• Pressure washing</li>
-                <li>• Event cleanup services</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            Ready for a Spotless Space?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Contact us today for a free estimate and experience the difference professional cleaning makes.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
-              Get Free Quote
-            </button>
-            <a 
-              href="tel:+1234567890" 
-              className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors inline-flex items-center justify-center space-x-2"
-            >
-              <Phone className="h-5 w-5" />
-              <span>Call Now</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <Sparkles className="h-6 w-6 text-blue-400" />
-                <span className="text-xl font-bold">Test Cleaning Seattle</span>
-              </div>
-              <p className="text-gray-400">
-                Professional cleaning services for homes and businesses in the Seattle area.
+              <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                Seattle's Most Trusted 
+                <span className="text-blue-600"> Cleaning Service</span>
+              </h2>
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                Professional residential and commercial cleaning services throughout Seattle and surrounding areas. 
+                We use eco-friendly products and guarantee 100% satisfaction with every clean.
               </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <Phone className="h-4 w-4 text-blue-400" />
-                  <span className="text-gray-300">(123) 456-7890</span>
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <Link 
+                  href="#contact" 
+                  className="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg text-center"
+                >
+                  Schedule Free Estimate
+                </Link>
+                <a 
+                  href="tel:+12065551234" 
+                  className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg hover:bg-blue-600 hover:text-white transition-colors font-semibold text-lg text-center"
+                >
+                  Call Now: (206) 555-1234
+                </a>
+              </div>
+              <div className="flex items-center space-x-6 text-sm text-gray-600">
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
+                  Licensed & Insured
                 </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="h-4 w-4 text-blue-400" />
-                  <span className="text-gray-300">info@testcleaningseattle.com</span>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
+                  Eco-Friendly Products
                 </div>
-                <div className="flex items-start space-x-3">
-                  <MapPin className="h-4 w-4 text-blue-400 mt-1" />
-                  <span className="text-gray-300">Serving Greater Seattle Area</span>
+                <div className="flex items-center">
+                  <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
+                  Same Day Service
                 </div>
               </div>
             </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Business Hours</h3>
-              <div className="space-y-2 text-gray-300">
-                <div>Monday - Friday: 8:00 AM - 6:00 PM</div>
-                <div>Saturday: 9:00 AM - 4:00 PM</div>
-                <div>Sunday: Closed</div>
+            <div className="relative">
+              <div className="bg-white rounded-2xl shadow-2xl p-8">
+                <div className="flex items-center mb-6">
+                  <div className="flex text-yellow-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 fill-current" />
+                    ))}
+                  </div>
+                  <span className="ml-2 text-gray-600 font-semibold">5.0 Rating</span>
+                </div>
+                <blockquote className="text-gray-700 mb-4 italic">
+                  "Test Cleaning Seattle transformed our home! Their attention to detail is incredible, 
+                  and they always use products that are safe for our kids and pets. Highly recommend!"
+                </blockquote>
+                <div className="flex items-center">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-blue-600 font-semibold">SM</span>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Sarah Martinez</p>
+                    <p className="text-gray-600 text-sm">Capitol Hill Resident</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Test Cleaning Seattle. All rights reserved.</p>
+      {/* Services Preview */}
+      <section id="services" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Comprehensive Cleaning Services in Seattle
+            </h3>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              From cozy apartments in Belltown to large offices in South Lake Union, 
+              we provide thorough, reliable cleaning services tailored to your needs.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                <Home className="h-8 w-8 text-blue-600" />
+              </div>
+              <h4 className="text-2xl font-bold text-gray-900 mb-4">Residential Cleaning</h4>
+              <p className="text-gray-600 mb-6">
+                Complete home cleaning services including kitchens, bathrooms, bedrooms, and living areas. 
+                Perfect for busy Seattle families and professionals.
+              </p>
+              <ul className="space-y-2 text-gray-600">
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                  Deep cleaning and maintenance cleaning
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                  Move-in and move-out cleaning
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                  Post-construction cleanup
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                <Building className="h-8 w-8 text-blue-600" />
+              </div>
+              <h4 className="text-2xl font-bold text-gray-900 mb-4">Commercial Cleaning</h4>
+              <p className="text-gray-600 mb-6">
+                Professional office cleaning services for Seattle businesses. 
+                Flexible scheduling including evenings and weekends to fit your operations.
+              </p>
+              <ul className="space-y-2 text-gray-600">
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                  Daily, weekly, or monthly service
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                  Restroom and break room sanitization
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                  Floor care and window cleaning
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow md:col-span-2 lg:col-span-1">
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                <Sparkles className="h-8 w-8 text-blue-600" />
+              </div>
+              <h4 className="text-2xl font-bold text-gray-900 mb-4">Specialty Services</h4>
+              <p className="text-gray-600 mb-6">
+                Additional cleaning services to handle unique situations and maintain your property 
+                in pristine condition year-round.
+              </p>
+              <ul className="space-y-2 text-gray-600">
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                  Carpet and upholstery cleaning
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                  Window washing (interior/exterior)
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                  Holiday and event cleanup
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </footer>
-    </main>
-  )
-}
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-20 bg-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Why Seattle Residents Choose Test Cleaning
+            </h3>
+            <p className="text-xl text-gray-600">
+              Over 500 satisfied customers across Queen Anne, Capitol Hill, Ballard, and beyond
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <CheckCircle className="h-10 w-10 text-green-500" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900 mb-2">100% Satisfaction Guarantee</h4>
+              <p className="text-gray-600">
+                Not happy with our service? We'll return within 24 hours to make it right at no extra charge.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <Clock className="h-10 w-10 text-blue-600" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900 mb-2">Flexible Scheduling</h4>
+              <p className="text-gray-600">
+                Same-day service available. We work around your schedule with evening and weekend appointments.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <Sparkles className="h-10 w-10 text-green-600" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900 mb-2">Eco-Friendly Products</h4>
+              <p className="text-gray-600">
+                Safe for children, pets, and the environment. We use only certified green cleaning supplies.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <Star className="h-10 w-10 text-yellow-500" />
+              </div>
+              <h4 className="text-xl font-bold text-gray-900 mb-2">5-Star Service</h4>
+              <p className="text-gray-600">
+                Consistently rated 5 stars by Seattle customers. Licensed, bonded, and insured for your peace of mind.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Service Areas */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Serving All of Seattle and Beyond
+            </h3>
+            <p className="text-xl text-gray-600">
+              Professional cleaning services throughout King County
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div>
+              <h4 className="text-xl font-bold text-gray-900 mb-4">Seattle Neighborhoods</h4>
+              <ul className="space-y-2 text-gray-600">

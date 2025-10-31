@@ -2,30 +2,20 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Test Cleaning Seattle - Professional Cleaning Services in Seattle, WA',
-  description: 'Premier cleaning services in Seattle, WA. Residential and commercial cleaning with exceptional quality and reliability. Get your free quote today!',
-  keywords: 'cleaning services Seattle, house cleaning Seattle, commercial cleaning Seattle WA, maid service Seattle',
-  authors: [{ name: 'Test Cleaning Seattle' }],
-  creator: 'Test Cleaning Seattle',
-  publisher: 'Test Cleaning Seattle',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL('https://testcleaningseattle.com'),
+  title: 'Test Cleaning Seattle - Professional House & Office Cleaning Services',
+  description: 'Trusted cleaning services in Seattle, WA. Professional house cleaning, office cleaning, and commercial cleaning. Licensed, insured, and locally owned. Free estimates available.',
+  keywords: 'Seattle cleaning service, house cleaning Seattle, office cleaning, commercial cleaning, residential cleaning, maid service Seattle, professional cleaners',
   openGraph: {
     title: 'Test Cleaning Seattle - Professional Cleaning Services',
-    description: 'Premier cleaning services in Seattle, WA. Residential and commercial cleaning with exceptional quality and reliability.',
-    url: 'https://testcleaningseattle.com',
-    siteName: 'Test Cleaning Seattle',
-    locale: 'en_US',
+    description: 'Reliable cleaning services for homes and offices in Seattle, Washington. Licensed and insured professional cleaners.',
     type: 'website',
+    locale: 'en_US',
+    siteName: 'Test Cleaning Seattle'
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Test Cleaning Seattle - Professional Cleaning Services',
-    description: 'Premier cleaning services in Seattle, WA. Residential and commercial cleaning with exceptional quality and reliability.',
+    description: 'Trusted cleaning services in Seattle, WA. Professional house and office cleaning with free estimates.'
   },
   robots: {
     index: true,
@@ -38,6 +28,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  verification: {
+    google: 'your-google-verification-code'
+  }
 }
 
 export default function RootLayout({
@@ -49,12 +42,26 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="geo.region" content="US-WA" />
+        <meta name="geo.placename" content="Seattle" />
+        <meta name="geo.position" content="47.6062;-122.3321" />
+        <meta name="ICBM" content="47.6062, -122.3321" />
         <link rel="canonical" href="https://testcleaningseattle.com" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
       <body>
-        <div id="root">
+        <header>
+          <nav role="navigation" aria-label="Main navigation">
+            {/* Navigation will be implemented in components */}
+          </nav>
+        </header>
+        <main role="main">
           {children}
-        </div>
+        </main>
+        <footer role="contentinfo">
+          {/* Footer will be implemented in components */}
+        </footer>
       </body>
     </html>
   )
