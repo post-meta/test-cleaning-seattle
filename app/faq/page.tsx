@@ -285,3 +285,17 @@ export default function FAQ() {
                     <div key={index} className="border-b border-gray-100 last:border-b-0 pb-6 last:pb-0">
                       <h3 className="text-lg font-semibold text-gray-900 mb-3">
                         {faq.question}
+</h3>
+</div>
+</div>
+</h2>
+</section>
+</div>
+</p>
+</h1>
+</header>
+</div>
+</div>
+}
+}
+}
